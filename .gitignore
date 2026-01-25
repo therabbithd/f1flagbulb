@@ -1,0 +1,10 @@
+.env
+__pycache__/
+*.pyc
+.vscode/
+.idea/
+dist/
+build/
+*.egg-info/
+test_kasa.py
+test.py
