@@ -1,0 +1,362 @@
+Date/Time:       2026-02-15 16:57:08 
+Command line:    C:\Users\PC\AppData\Roaming\Python\Python313\site-packages\briefcase\__main__.py create android
+
+OS Release:      Windows 11
+OS Version:      10.0.26100
+Architecture:    AMD64
+Platform:        Windows-11-10.0.26100-SP0
+
+Python exe:      C:\Python313\python.exe
+Python version:  3.13.2 (tags/v3.13.2:4f8bb39, Feb  4 2025, 15:23:48) [MSC v.1942 64 bit (AMD64)]
+Virtual env:     False
+Conda env:       False
+
+Briefcase:       0.3.26
+Target platform: android
+Target format:   gradle
+
+Environment Variables:
+	ALLUSERSPROFILE=C:\ProgramData
+	ANDROID_HOME=C:\Users\PC\AppData\Local\Android\Sdk
+	APPDATA=C:\Users\PC\AppData\Roaming
+	ASL.LOG=Destination=file
+	CHOCOLATEYINSTALL=C:\ProgramData\chocolatey
+	CHOCOLATEYLASTPATHUPDATE=133867895764739829
+	CHROME_CRASHPAD_PIPE_NAME=\\.\pipe\crashpad_24404_DVIQDYCYLIWAHITF
+	COMMONPROGRAMFILES=C:\Program Files\Common Files
+	COMMONPROGRAMFILES(X86)=C:\Program Files (x86)\Common Files
+	COMMONPROGRAMW6432=C:\Program Files\Common Files
+	COMPOSER_NO_INTERACTION=1
+	COMPUTERNAME=DESKTOP-T6PB3TN
+	COMSPEC=C:\WINDOWS\system32\cmd.exe
+	CURSOR_AGENT=1
+	CURSOR_TRACE_ID=496aa7bebe2d45099a6ebdbfd3f01329
+	DRIVERDATA=C:\Windows\System32\Drivers\DriverData
+	EFC_21856_1262719628=1
+	EFC_21856_1592913036=1
+	EFC_21856_2283032206=1
+	EFC_21856_2775293581=1
+	EFC_21856_3789132940=1
+	FORCE_COLOR=0
+	FPS_BROWSER_APP_PROFILE_STRING=Internet Explorer
+	FPS_BROWSER_USER_PROFILE_STRING=Default
+	GIT_INSTALL_ROOT=C:\Users\PC\scoop\apps\git\current
+	HOMEDRIVE=C:
+	HOMEPATH=\Users\PC
+	JAVA_HOME=C:\Program Files\Eclipse Adoptium\jdk-21.0.4.7-hotspot
+	LOCALAPPDATA=C:\Users\PC\AppData\Local
+	LOGONSERVER=\\DESKTOP-T6PB3TN
+	MSMPI_BENCHMARKS=C:\Program Files\Microsoft MPI\Benchmarks\
+	MSMPI_BIN=C:\Program Files\Microsoft MPI\Bin\
+	NO_COLOR=1
+	NUMBER_OF_PROCESSORS=16
+	OCULUSBASE=D:\Meta Horizon\
+	ONEDRIVE=C:\Users\PC\OneDrive - Consejería de Desarrollo Educativo y Formación Profesional
+	ORIGINAL_XDG_CURRENT_DESKTOP=undefined
+	OS=Windows_NT
+	PATH=D:\Meta Horizon\Support\oculus-runtime;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\VulkanSDK\1.4.313.2\Bin;C:\Python313\Scripts\;C:\Python313\;C:\Program Files\Eclipse Adoptium\jdk-21.0.4.7-hotspot\bin;C:\Program Files\Microsoft MPI\Bin\;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\dotnet\;C:\Program Files\AutoFirma\AutoFirma;C:\Program Files (x86)\Microsoft SQL Server\160\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\160\Tools\Binn\;C:\Program Files\Microsoft SQL Server\160\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\Microsoft SQL Server\160\DTS\Binn\;C:\Program Files\PuTTY\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Pandoc\;C:\Program Files\MiKTeX\miktex\bin\x64\;C:\Program Files\nodejs\;C:\ProgramData\chocolatey\bin;C:\Program Files\Calibre2\;C:\Users\PC\AppData\Local\Muse Hub\lib;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\cursor\resources\app\bin;C:\Program Files\Microsoft SQL Server\170\Tools\Binn\;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\Program Files\Cloudflare\Cloudflare WARP\;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\PC\scoop\apps\mpv\current;C:\Users\PC\scoop\shims;C:\Users\PC\AppData\Local\Microsoft\WindowsApps;C:\Users\PC\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\PC\AppData\Local\spicetify;C:\Program Files\Eclipse Adoptium\jdk-21.0.4.7-hotspot\bin;C:\Program Files (x86)\Nmap;C:\Users\PC\AppData\Local\Microsoft\WindowsApps;C:\Users\PC\AppData\Local\Programs\Ollama;C:\Users\PC\AppData\Local\Muse Hub\lib;C:\Users\PC\AppData\Roaming\npm;C:\Users\PC\AppData\Local\Programs\mongosh\;C:\Users\PC\AppData\Local\Microsoft\WinGet\Packages\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\ffmpeg-7.1.1-full_build\bin;C:\Users\PC\.dotnet\tools;C:\Users\PC\AppData\Local\JetBrains\Toolbox\scripts;C:\Users\PC\.dotnet\tools;C:\Users\PC\AppData\Local\Programs\Antigravity\bin
+	PATHEXT=.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.PY;.PYW;.CPL
+	PROCESSOR_ARCHITECTURE=AMD64
+	PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 151 Stepping 2, GenuineIntel
+	PROCESSOR_LEVEL=6
+	PROCESSOR_REVISION=9702
+	PROGRAMDATA=C:\ProgramData
+	PROGRAMFILES=C:\Program Files
+	PROGRAMFILES(X86)=C:\Program Files (x86)
+	PROGRAMW6432=C:\Program Files
+	PSEXECUTIONPOLICYPREFERENCE=Bypass
+	PSMODULEPATH=C:\Users\PC\Documents\WindowsPowerShell\Modules;C:\Program Files\WindowsPowerShell\Modules;C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules;C:\Program Files (x86)\Microsoft SQL Server\160\Tools\PowerShell\Modules\
+	PUBLIC=C:\Users\Public
+	SESSIONNAME=Console
+	SYSTEMDRIVE=C:
+	SYSTEMROOT=C:\WINDOWS
+	TEMP=C:\Users\PC\AppData\Local\Temp
+	TERM=dumb
+	TMP=C:\Users\PC\AppData\Local\Temp
+	USERDOMAIN=DESKTOP-T6PB3TN
+	USERDOMAIN_ROAMINGPROFILE=DESKTOP-T6PB3TN
+	USERNAME=PC
+	USERPROFILE=C:\Users\PC
+	VBOX_MSI_INSTALL_PATH=C:\Program Files\Oracle\VirtualBox\
+	VK_SDK_PATH=C:\VulkanSDK\1.4.313.2
+	VSCODE_CODE_CACHE_PATH=C:\Users\PC\AppData\Roaming\Cursor\CachedData\32cfbe848b35d9eb320980195985450f244b3030
+	VSCODE_CRASH_REPORTER_PROCESS_TYPE=extensionHost
+	VSCODE_CWD=C:\Program Files\cursor
+	VSCODE_ESM_ENTRYPOINT=vs/workbench/api/node/extensionHostProcess
+	VSCODE_HANDLES_UNCAUGHT_ERRORS=true
+	VSCODE_IPC_HOOK=\\.\pipe\bd58a172-2.2.43-main-sock
+	VSCODE_L10N_BUNDLE_LOCATION=
+	VSCODE_NLS_CONFIG={"userLocale":"en-us","osLocale":"es-es","resolvedLanguage":"en","defaultMessagesFile":"C:\\Program Files\\cursor\\resources\\app\\out\\nls.messages.json","locale":"en-us","availableLanguages":{}}
+	VSCODE_PID=24404
+	VSCODE_PROCESS_TITLE=extension-host  [1-1]
+	VULKAN_SDK=C:\VulkanSDK\1.4.313.2
+	WINDIR=C:\WINDOWS
+	_ZO_DOCTOR=0
+	__PSLOCKDOWNPOLICY=0
+
+pyproject.toml:
+[build-system]
+requires = ["briefcase"]
+
+[tool.briefcase]
+project_name = "Racing Flag Monitor"
+bundle = "com.racingflagmonitor"
+version = "0.1.0"
+url = "https://github.com/yourusername/racing-flag-monitor"
+license = {text = "MIT"}
+author = "Your Name"
+author_email = "your.email@example.com"
+
+[tool.briefcase.app.racingflagmonitor]
+app_name = "racingflagmonitor"
+formal_name = "Racing Flag Monitor"
+description = "Monitor de banderas de F1 y NASCAR con control de bombilla inteligente"
+sources = ["racingflagmonitor", "config.py", "f1_monitor.py", "nascar_monitor.py", "kasa_manager.py"]
+requires = [
+    "toga>=0.3.1",
+    "requests>=2.31.0",
+    "python-kasa>=0.5.0",
+    "websockets>=12.0",
+]
+
+[tool.briefcase.app.racingflagmonitor.android]
+requires = [
+    "toga[android]>=0.3.1",
+    "requests>=2.31.0",
+    "python-kasa>=0.5.0",
+    "websockets>=12.0",
+]
+permissions = [
+    "INTERNET",
+    "ACCESS_NETWORK_STATE",
+]
+
+Briefcase Log:
+[16:56:02]                                                                                                                                                               java.py:111
+           [Java JDK] Evaluating JAVA_HOME...                                                                                                                            java.py:111
+           JAVA_HOME=C:\Program Files\Eclipse Adoptium\jdk-21.0.4.7-hotspot                                                                                              java.py:112
+                                                                                                                                                                   subprocess.py:839
+           >>> Running Command:                                                                                                                                    subprocess.py:839
+           >>>     'C:\Program Files\Eclipse Adoptium\jdk-21.0.4.7-hotspot\bin\javac' -version                                                                     subprocess.py:839
+           >>> Working Directory:                                                                                                                                  subprocess.py:839
+           >>>     C:\Users\PC\Documents\proyectos\f1flag                                                                                                          subprocess.py:839
+           >>> Command Output:                                                                                                                                     subprocess.py:839
+           >>>     javac 21.0.4                                                                                                                                    subprocess.py:839
+           >>> Return code: 0                                                                                                                                      subprocess.py:839
+                                                                                                                                                                   subprocess.py:839
+                                                                                                                                                                         java.py:232
+           *************************************************************************                                                                                     java.py:232
+           ** WARNING: JAVA_HOME does not point to a Java 17 JDK            **                                                                                           java.py:232
+           *************************************************************************                                                                                     java.py:232
+                                                                                                                                                                         java.py:232
+               Android requires a Java 17 JDK, but the location pointed to by the                                                                                        java.py:232
+               JAVA_HOME environment variable:                                                                                                                           java.py:232
+                                                                                                                                                                         java.py:232
+               C:\Program Files\Eclipse Adoptium\jdk-21.0.4.7-hotspot                                                                                                    java.py:232
+                                                                                                                                                                         java.py:232
+               isn't a Java 17 JDK (it appears to be Java 21.0.4).                                                                                                       java.py:232
+                                                                                                                                                                         java.py:232
+               Briefcase will proceed using its own JDK instance.                                                                                                        java.py:232
+                                                                                                                                                                         java.py:232
+           *************************************************************************                                                                                     java.py:232
+                                                                                                                                                                         java.py:246
+           [java] A Java 17 JDK was not found; downloading and installing...                                                                                             java.py:246
+           To use an existing JDK 17 instance, specify its root directory path in the JAVA_HOME environment variable.                                                    java.py:253
+                                                                                                                                                                         java.py:258
+[16:56:03] Downloading OpenJDK17U-jdk_x64_windows_hotspot_17.0.17_10.zip...                                                                                              file.py:227
+[16:56:41] Installing OpenJDK... started                                                                                                                                 java.py:289
+[16:56:43] Installing OpenJDK... done                                                                                                                                    java.py:289
+           Using JDK at C:\Users\PC\AppData\Local\BeeWare\briefcase\Cache\tools\java17                                                                                   java.py:263
+                                                                                                                                                                  android_sdk.py:271
+           [Android SDK] Evaluating ANDROID_HOME...                                                                                                               android_sdk.py:271
+           ANDROID_HOME=C:\Users\PC\AppData\Local\Android\Sdk                                                                                                     android_sdk.py:272
+                                                                                                                                                                  android_sdk.py:321
+           *************************************************************************                                                                              android_sdk.py:321
+           ** WARNING: ANDROID_HOME does not point to an Android SDK              **                                                                              android_sdk.py:321
+           *************************************************************************                                                                              android_sdk.py:321
+                                                                                                                                                                  android_sdk.py:321
+               The location pointed to by the ANDROID_HOME environment                                                                                            android_sdk.py:321
+               variable:                                                                                                                                          android_sdk.py:321
+                                                                                                                                                                  android_sdk.py:321
+               C:\Users\PC\AppData\Local\Android\Sdk                                                                                                              android_sdk.py:321
+                                                                                                                                                                  android_sdk.py:321
+               doesn't appear to contain an Android SDK with the Command-line Tools installed.                                                                    android_sdk.py:321
+                                                                                                                                                                  android_sdk.py:321
+               If ANDROID_HOME is an Android SDK, ensure it is the root directory                                                                                 android_sdk.py:321
+               of the Android SDK instance such that                                                                                                              android_sdk.py:321
+                                                                                                                                                                  android_sdk.py:321
+               $ANDROID_HOME\cmdline-tools\19.0\bin\sdkmanager.bat                                                                                                android_sdk.py:321
+                                                                                                                                                                  android_sdk.py:321
+               is a valid filepath.                                                                                                                               android_sdk.py:321
+                                                                                                                                                                  android_sdk.py:321
+               Briefcase will proceed using its own SDK instance.                                                                                                 android_sdk.py:321
+                                                                                                                                                                  android_sdk.py:321
+           *************************************************************************                                                                              android_sdk.py:321
+                                                                                                                                                                  android_sdk.py:362
+           [android_sdk] The Android SDK was not found; downloading and installing...                                                                             android_sdk.py:362
+           To use an existing Android SDK instance, specify its root directory path in the ANDROID_HOME environment variable.                                     android_sdk.py:366
+                                                                                                                                                                  android_sdk.py:370
+           Downloading commandlinetools-win-13114758_latest.zip...                                                                                                       file.py:227
+[16:57:00] Installing Android SDK Command-Line Tools 19.0... started                                                                                              android_sdk.py:421
+[16:57:01] Installing Android SDK Command-Line Tools 19.0... done                                                                                                 android_sdk.py:421
+           Removing older Android SDK packages... started                                                                                                         android_sdk.py:460
+           Removing older Android SDK packages... done                                                                                                            android_sdk.py:460
+                                                                                                                                                                  android_sdk.py:601
+           The Android tools provided by Google have license terms that you must accept                                                                           android_sdk.py:601
+           before you may use those tools.                                                                                                                        android_sdk.py:601
+                                                                                                                                                                   subprocess.py:839
+           >>> Running Command:                                                                                                                                    subprocess.py:839
+           >>>     'C:\Users\PC\AppData\Local\BeeWare\briefcase\Cache\tools\android_sdk\cmdline-tools\19.0\bin\sdkmanager.bat' --licenses                          subprocess.py:839
+           >>> Working Directory:                                                                                                                                  subprocess.py:839
+           >>>     C:\Users\PC\Documents\proyectos\f1flag                                                                                                          subprocess.py:839
+           >>> Environment Overrides:                                                                                                                              subprocess.py:839
+           >>>     ANDROID_HOME=C:\Users\PC\AppData\Local\BeeWare\briefcase\Cache\tools\android_sdk                                                                subprocess.py:839
+           >>>     ANDROID_SDK_ROOT=C:\Users\PC\AppData\Local\BeeWare\briefcase\Cache\tools\android_sdk                                                            subprocess.py:839
+           >>>     JAVA_HOME=C:\Users\PC\AppData\Local\BeeWare\briefcase\Cache\tools\java17                                                                        subprocess.py:839
+[16:57:08] >>> Return code: 0                                                                                                                                      subprocess.py:839
+                                                                                                                                                                   subprocess.py:839
+                                                                                                                                                                      __main__.py:42
+           You did not accept the Android SDK licenses. Please re-run the briefcase command                                                                           __main__.py:43
+           and accept the Android SDK license when prompted. You may need an Internet                                                                                 __main__.py:43
+           connection.                                                                                                                                                __main__.py:43
+           Saving log... started                                                                                                                                      console.py:443
+
+Main thread traceback:
+┌─────────────────────────────────────────────────────────────────────── Traceback (most recent call last) ────────────────────────────────────────────────────────────────────────┐
+│ C:\Users\PC\AppData\Roaming\Python\Python313\site-packages\briefcase\__main__.py:27 in main                                                                                      │
+│                                                                                                                                                                                  │
+│   24 │   │   │   Path.cwd() / "pyproject.toml",                                                                                                                                  │
+│   25 │   │   │   overrides=overrides,                                                                                                                                            │
+│   26 │   │   )                                                                                                                                                                   │
+│ > 27 │   │   command(**options)                                                                                                                                                  │
+│   28 │   except HelpText as e:                                                                                                                                                   │
+│   29 │   │   console.info()                                                                                                                                                      │
+│   30 │   │   console.info(str(e))                                                                                                                                                │
+│                                                                                                                                                                                  │
+│ ┌─────────────────────────────────────────────────────────────────────────────────── locals ───────────────────────────────────────────────────────────────────────────────────┐ │
+│ │       command = <briefcase.platforms.android.gradle.GradleCreateCommand object at 0x00000230A2A85E80>                                                                        │ │
+│ │       console = <briefcase.console.Console object at 0x000002309F52F8C0>                                                                                                     │ │
+│ │             e = BriefcaseCommandError('You did not accept the Android SDK licenses. Please re-run the briefcase command\nand accept the Android SDK license when prompted.   │ │
+│ │                 You may need an Internet\nconnection.\n')                                                                                                                    │ │
+│ │ extra_cmdline = []                                                                                                                                                           │ │
+│ │       options = {}                                                                                                                                                           │ │
+│ │     overrides = {}                                                                                                                                                           │ │
+│ │        result = 200                                                                                                                                                          │ │
+│ └──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘ │
+│                                                                                                                                                                                  │
+│ C:\Users\PC\AppData\Roaming\Python\Python313\site-packages\briefcase\commands\create.py:1027 in __call__                                                                         │
+│                                                                                                                                                                                  │
+│   1024 │   ) -> dict | None:                                                                                                                                                     │
+│   1025 │   │   # Confirm host compatibility, that all required tools are available,                                                                                              │
+│   1026 │   │   # and that the app configuration is finalized.                                                                                                                    │
+│ > 1027 │   │   self.finalize(app)                                                                                                                                                │
+│   1028 │   │                                                                                                                                                                     │
+│   1029 │   │   if app_name:                                                                                                                                                      │
+│   1030 │   │   │   try:                                                                                                                                                          │
+│                                                                                                                                                                                  │
+│ ┌───────────────────────────────────────────── locals ─────────────────────────────────────────────┐                                                                             │
+│ │      app = None                                                                                  │                                                                             │
+│ │ app_name = None                                                                                  │                                                                             │
+│ │  options = {}                                                                                    │                                                                             │
+│ │     self = <briefcase.platforms.android.gradle.GradleCreateCommand object at 0x00000230A2A85E80> │                                                                             │
+│ └──────────────────────────────────────────────────────────────────────────────────────────────────┘                                                                             │
+│                                                                                                                                                                                  │
+│ C:\Users\PC\AppData\Roaming\Python\Python313\site-packages\briefcase\commands\base.py:719 in finalize                                                                            │
+│                                                                                                                                                                                  │
+│    716 │   │   :param debugger_port: The port to use for the debugger                                                                                                            │
+│    717 │   │   """                                                                                                                                                               │
+│    718 │   │   self.verify_host()                                                                                                                                                │
+│ >  719 │   │   self.verify_tools()                                                                                                                                               │
+│    720 │   │                                                                                                                                                                     │
+│    721 │   │   apps = self.apps.values() if app is None else [app]                                                                                                               │
+│    722 │   │   for app in apps:                                                                                                                                                  │
+│                                                                                                                                                                                  │
+│ ┌─────────────────────────────────────────────── locals ────────────────────────────────────────────────┐                                                                        │
+│ │           app = None                                                                                  │                                                                        │
+│ │      debugger = None                                                                                  │                                                                        │
+│ │ debugger_host = None                                                                                  │                                                                        │
+│ │ debugger_port = None                                                                                  │                                                                        │
+│ │          self = <briefcase.platforms.android.gradle.GradleCreateCommand object at 0x00000230A2A85E80> │                                                                        │
+│ │     test_mode = False                                                                                 │                                                                        │
+│ └───────────────────────────────────────────────────────────────────────────────────────────────────────┘                                                                        │
+│                                                                                                                                                                                  │
+│ C:\Users\PC\AppData\Roaming\Python\Python313\site-packages\briefcase\platforms\android\gradle.py:148 in verify_tools                                                             │
+│                                                                                                                                                                                  │
+│   145 │   │   """Verify that the Android APK tools in `briefcase` will operate on this system,                                                                                   │
+│   146 │   │   downloading tools as needed."""                                                                                                                                    │
+│   147 │   │   super().verify_tools()                                                                                                                                             │
+│ > 148 │   │   AndroidSDK.verify(tools=self.tools)                                                                                                                                │
+│   149 │   │   if not self.is_clone:                                                                                                                                              │
+│   150 │   │   │   self.console.add_log_file_extra(self.tools.android_sdk.list_packages)                                                                                          │
+│   151                                                                                                                                                                            │
+│                                                                                                                                                                                  │
+│ ┌─────────────────────────────────────────── locals ───────────────────────────────────────────┐                                                                                 │
+│ │ self = <briefcase.platforms.android.gradle.GradleCreateCommand object at 0x00000230A2A85E80> │                                                                                 │
+│ └──────────────────────────────────────────────────────────────────────────────────────────────┘                                                                                 │
+│                                                                                                                                                                                  │
+│ C:\Users\PC\AppData\Roaming\Python\Python313\site-packages\briefcase\integrations\base.py:115 in verify                                                                          │
+│                                                                                                                                                                                  │
+│   112 │   │   **kwargs,                                                                                                                                                          │
+│   113 │   ) -> ManagedToolT:                                                                                                                                                     │
+│   114 │   │   """Confirm the managed tool is installed and available."""                                                                                                         │
+│ > 115 │   │   return super().verify(tools=tools, app=app, install=install, **kwargs)                                                                                             │
+│   116 │                                                                                                                                                                          │
+│   117 │   @abstractmethod                                                                                                                                                        │
+│   118 │   def exists(self) -> bool:                                                                                                                                              │
+│                                                                                                                                                                                  │
+│ ┌──────────────────────────────────── locals ────────────────────────────────────┐                                                                                               │
+│ │     app = None                                                                 │                                                                                               │
+│ │ install = True                                                                 │                                                                                               │
+│ │  kwargs = {}                                                                   │                                                                                               │
+│ │   tools = <briefcase.integrations.base.ToolCache object at 0x00000230A2A867B0> │                                                                                               │
+│ └────────────────────────────────────────────────────────────────────────────────┘                                                                                               │
+│                                                                                                                                                                                  │
+│ C:\Users\PC\AppData\Roaming\Python\Python313\site-packages\briefcase\integrations\base.py:79 in verify                                                                           │
+│                                                                                                                                                                                  │
+│    76 │   ) -> ToolT:                                                                          ┌─────────────────────────────────── locals ────────────────────────────────────┐ │
+│    77 │   │   """Confirm the tool is available and usable on the host platform."""             │    app = None                                                                 │ │
+│    78 │   │   cls.verify_host(tools=tools)                                                     │ kwargs = {'install': True}                                                    │ │
+│ >  79 │   │   tool = cls.verify_install(tools=tools, app=app, **kwargs)                        │  tools = <briefcase.integrations.base.ToolCache object at 0x00000230A2A867B0> │ │
+│    80 │   │   return tool                                                                      └───────────────────────────────────────────────────────────────────────────────┘ │
+│    81 │                                                                                                                                                                          │
+│    82 │   @classmethod                                                                                                                                                           │
+│                                                                                                                                                                                  │
+│ C:\Users\PC\AppData\Roaming\Python\Python313\site-packages\briefcase\integrations\android_sdk.py:374 in verify_install                                                           │
+│                                                                                                                                                                                  │
+│    371 │   │   │   │   sdk.install()                                                                                                                                             │
+│    372 │   │                                                                                                                                                                     │
+│    373 │   │   # Licences must be accepted to use the SDK                                                                                                                        │
+│ >  374 │   │   sdk.verify_license()                                                                                                                                              │
+│    375 │   │                                                                                                                                                                     │
+│    376 │   │   tools.console.debug(f"Using Android SDK at {sdk.root_path}")                                                                                                      │
+│    377 │   │   tools.android_sdk = sdk                                                                                                                                           │
+│                                                                                                                                                                                  │
+│ ┌────────────────────────────────────────────── locals ───────────────────────────────────────────────┐                                                                          │
+│ │        install = True                                                                               │                                                                          │
+│ │         kwargs = {'app': None}                                                                      │                                                                          │
+│ │            sdk = <briefcase.integrations.android_sdk.AndroidSDK object at 0x00000230A40A0E10>       │                                                                          │
+│ │   sdk_root_env = 'C:\\Users\\PC\\AppData\\Local\\Android\\Sdk'                                      │                                                                          │
+│ │  sdk_root_path = WindowsPath('C:/Users/PC/AppData/Local/BeeWare/briefcase/Cache/tools/android_sdk') │                                                                          │
+│ │ sdk_source_env = 'ANDROID_HOME'                                                                     │                                                                          │
+│ │          tools = <briefcase.integrations.base.ToolCache object at 0x00000230A2A867B0>               │                                                                          │
+│ └─────────────────────────────────────────────────────────────────────────────────────────────────────┘                                                                          │
+│                                                                                                                                                                                  │
+│ C:\Users\PC\AppData\Roaming\Python\Python313\site-packages\briefcase\integrations\android_sdk.py:627 in verify_license                                                           │
+│                                                                                                                                                                                  │
+│    624 │   │   │   ) from e                                                                                                                                                      │
+│    625 │   │                                                                                                                                                                     │
+│    626 │   │   if not license_path.exists():                                                                                                                                     │
+│ >  627 │   │   │   raise BriefcaseCommandError(                                                                                                                                  │
+│    628 │   │   │   │   """\                                                                                                                                                      │
+│    629 You did not accept the Android SDK licenses. Please re-run the briefcase command                                                                                          │
+│    630 and accept the Android SDK license when prompted. You may need an Internet                                                                                                │
+│                                                                                                                                                                                  │
+│ ┌──────────────────────────────────────────────────────────── locals ────────────────────────────────────────────────────────────┐                                               │
+│ │ license_path = WindowsPath('C:/Users/PC/AppData/Local/BeeWare/briefcase/Cache/tools/android_sdk/licenses/android-sdk-license') │                                               │
+│ │         self = <briefcase.integrations.android_sdk.AndroidSDK object at 0x00000230A40A0E10>                                    │                                               │
+│ └────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘                                               │
+└──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+BriefcaseCommandError: You did not accept the Android SDK licenses. Please re-run the briefcase command
+and accept the Android SDK license when prompted. You may need an Internet
+connection.
+

@@ -1,22 +1,22 @@
-# F1 Flag Monitor & Smart Bulb Integration
+# Racing Flag Monitor & Smart Bulb Integration
 
-A modern Python dashboard that monitors F1 Live Timing in real-time and Synchronizes a TP-Link Kasa smart bulb with the race track status (Yellow flags, Safety Car, Red Flag, etc.).
+A modern Python dashboard that monitors F1 and NASCAR Live Timing in real-time and synchronizes a TP-Link Kasa smart bulb with the race track status (Yellow flags, Safety Car, Red Flag, etc.).
 
 ![F1 Dashboard](https://img.shields.io/badge/F1-Live_Timing-red?style=for-the-badge&logo=formula1)
+![NASCAR](https://img.shields.io/badge/NASCAR-Live_Feed-004B8D?style=for-the-badge)
 ![TPLink Kasa](https://img.shields.io/badge/Kasa-Smart_Home-00ADEF?style=for-the-badge&logo=tplink)
 
 ## 🏎️ Features
 
-- **Real-time Monitoring**: Connects directly to F1's SignalR streaming service.
+- **Multi-Series Support**: Switch between **F1** and **NASCAR** directly from the GUI.
+- **Real-time Monitoring**:
+    - **F1**: Connects directly to F1's SignalR streaming service.
+    - **NASCAR**: Polls NASCAR's Live Feed API for instant updates.
 - **Smart Home Sync**: Automatically changes your Kasa bulb color based on track status:
-    - 🟢 **Green**: All Clear
-    - 🟡 **Yellow**: Yellow Flag / Caution
-    - 🟠 **Orange**: Safety Car
-    - 🔴 **Red**: Red Flag
-    - 🟣 **Magenta**: Virtual Safety Car (VSC)
-- **Modern GUI**: Built with `CustomTkinter` for a sleek, dark-themed dashboard.
-- **Background Processing**: Monitoring loop runs in a background thread to keep the UI smooth.
-- **Manual Control**: Test buttons in the UI to manually verify bulb colors.
+    - **F1 Flags**: 🟢 Green, 🟡 Yellow, 🟠 SC/VSC, 🔴 Red.
+    - **NASCAR Flags**: 🟢 Green, 🟡 Caution, 🔴 Red, ⚪ White, 🏁 Checkered.
+- **Modern GUI**: Built with `CustomTkinter` for a sleek, dark-themed dashboard with a built-in terminal log.
+- **Manual Control**: Test buttons to manually verify bulb colors for each series.
 
 ## 🛠️ Prerequisites
 
@@ -43,7 +43,7 @@ KASA_IP=192.168.1.XX
 ```
 
 > [!TIP]
-> You can find the IP address of your bulb using the Kasa/Tapo app or by running `kasa discover`.
+> You can find the IP address of your bulb using the Kasa/Tapo app or by running `kasa discover`. You can also update the bulb IP directly in the GUI.
 
 ## 🚀 Usage
 
@@ -52,16 +52,21 @@ Run the main application:
 python main.py
 ```
 
-- **F1 Live Timing**: The app will automatically wait for an active F1 session.
-- **Manual Test**: Use the buttons at the bottom of the window to change the bulb color manually.
+1. **Select Series**: Choose between F1 and NASCAR using the toggle at the top.
+2. **Monitor**: The app will automatically connect and wait for live session updates.
+3. **Manual Test**: Use the color buttons to test your bulb integration.
 
 ## 📁 Project Structure
 
-- `main.py`: Main application (GUI, F1 Monitor, and Kasa control).
-- `.env`: (Ignored) Sensitive credentials.
-- `.gitignore`: Prevents uploading `.env` and temporary files to Git.
+- `main.py`: Entry point, coordinates monitors and GUI.
+- `gui.py`: sleek `CustomTkinter` interface.
+- `f1_monitor.py`: F1 SignalR client implementation.
+- `nascar_monitor.py`: NASCAR API polling monitor.
+- `kasa_manager.py`: Handles Kasa bulb discovery and color control.
+- `config.py`: Centralized configuration and flag-to-color mappings.
 
 ## 📜 Credits
 
 - Inspired by F1 Live Timing SignalR protocol.
+- NASCAR live data via NASCAR.com Live Feed.
 - Built using [python-kasa](https://github.com/python-kasa/python-kasa) and [CustomTkinter](https://github.com/TomSchimansky/CustomTkinter).
