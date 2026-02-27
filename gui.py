@@ -2,7 +2,7 @@ import tkinter as tk
 import customtkinter as ctk
 import asyncio
 import time
-from config import COLORS, NASCAR_COLORS
+from config import COLORS, NASCAR_COLORS, MOTOGP_COLORS
 
 class F1FlagApp(ctk.CTk):
     def __init__(self, kasa_mgr, monitor_thread_loop):
@@ -39,7 +39,7 @@ class F1FlagApp(ctk.CTk):
         ctk.CTkLabel(selector_frame, text="Serie:", font=("Inter", 12)).pack(side="left", padx=5)
         self.series_selector = ctk.CTkSegmentedButton(
             selector_frame, 
-            values=["F1", "NASCAR"],
+            values=["F1", "NASCAR", "MotoGP"],
             command=self.on_series_change
         )
         self.series_selector.pack(side="left", padx=5)
@@ -136,9 +136,12 @@ class F1FlagApp(ctk.CTk):
         if value == "F1":
             self.header.configure(text="F1 FLAG MONITOR")
             self.monitor_status_led.configure(text="● F1 Live Timing")
-        else:
+        elif value == "NASCAR":
             self.header.configure(text="NASCAR FLAG MONITOR")
             self.monitor_status_led.configure(text="● NASCAR Live Feed")
+        else:
+            self.header.configure(text="MOTOGP FLAG MONITOR")
+            self.monitor_status_led.configure(text="● MotoGP Live Timing")
         
         # Reset status code
         self.current_status_code = "1"
@@ -156,11 +159,13 @@ class F1FlagApp(ctk.CTk):
             widget.destroy()
         
         # Get color map based on series
-        color_map = COLORS if self.selected_series == "f1" else NASCAR_COLORS
+        color_map = COLORS if self.selected_series == "f1" else (NASCAR_COLORS if self.selected_series == "nascar" else MOTOGP_COLORS)
         
         # Select test codes based on series
         if self.selected_series == "f1":
             test_codes = ["1", "2", "5", "6"]
+        elif self.selected_series == "motogp":
+            test_codes = ["G", "Y", "R", "F"]
         else:
             test_codes = ["1", "2", "3", "5"]  # Green, Yellow, Red, Checkered
         
@@ -187,7 +192,7 @@ class F1FlagApp(ctk.CTk):
             self.monitor_connected = monitor_connected
         
         # Get color map based on series
-        color_map = COLORS if self.selected_series == "f1" else NASCAR_COLORS
+        color_map = COLORS if self.selected_series == "f1" else (NASCAR_COLORS if self.selected_series == "nascar" else MOTOGP_COLORS)
         color_info = color_map.get(self.current_status_code, (0, 0, 0, "Desconocido", "#333333"))
         
         h, s, v, label, color_hex = color_info

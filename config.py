@@ -45,3 +45,12 @@ NASCAR_COLORS = {
     "8": (0, 100, 70, "Hot Track", "#FF3300"),            # Hot Track - Orange-Red
     "9": (200, 100, 50, "Cold Track", "#0066FF"),        # Cold Track - Blue
 }
+
+# --- MOTOGP FLAG MAPPING ---
+MOTOGP_COLORS = {
+    "G": (120, 100, 50, "Pista Libre", "#00FF00"),        # Green
+    "Y": (60, 100, 50, "Bandera Amarilla", "#FFFF00"),     # Yellow
+    "R": (0, 100, 50, "Bandera Roja", "#FF0000"),          # Red
+    "F": (0, 0, 50, "Bandera a Cuadros", "#808080"),       # Chequered / Finished
+    "C": (0, 100, 50, "Bandera Roja", "#FF0000"),          # Cancelled? treating as red
+}

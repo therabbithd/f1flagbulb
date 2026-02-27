@@ -4,6 +4,7 @@ from config import KASA_IP, KASA_USERNAME, KASA_PASSWORD
 from kasa_manager import KasaManager
 from f1_monitor import F1Monitor
 from nascar_monitor import NascarMonitor
+from motogp_monitor import MotoGPMonitor
 from gui import F1FlagApp
 
 async def main_logic(app):
@@ -26,6 +27,7 @@ async def main_logic(app):
     # State tracking for flags
     last_f1_status = None
     last_nascar_status = None
+    last_motogp_status = None
 
     async def on_f1_update(update):
         nonlocal last_f1_status
@@ -56,6 +58,20 @@ async def main_logic(app):
                     # Change bulb color immediately
                     await kasa_mgr.set_color(flag_state_str, app.add_log)
 
+    async def on_motogp_update(update):
+        nonlocal last_motogp_status
+        if 'MotoGPStatus' in update:
+            status = update['MotoGPStatus'].get('Status')
+            if status:
+                status_str = str(status)
+                # Only update if status has changed
+                if status_str != last_motogp_status:
+                    last_motogp_status = status_str
+                    app.current_status_code = status_str
+                    app.after(0, lambda: app.update_status_ui(current_monitor.connected if current_monitor else False))
+                    # Change bulb color immediately
+                    await kasa_mgr.set_color(status_str, app.add_log)
+
     async def run_monitor():
         nonlocal current_monitor, monitor_task, last_series
         while not stop_monitor.is_set():
@@ -85,12 +101,18 @@ async def main_logic(app):
                     # Update bulb immediately to last known F1 status if available
                     if last_f1_status:
                         await kasa_mgr.set_color(last_f1_status, app.add_log)
-                else:
+                elif series == "nascar":
                     current_monitor = NascarMonitor(on_nascar_update, app.add_log, poll_interval=5)
                     app.add_log("[Sistema] Iniciando monitor NASCAR...")
                     # Update bulb immediately to last known NASCAR status if available
                     if last_nascar_status:
                         await kasa_mgr.set_color(last_nascar_status, app.add_log)
+                elif series == "motogp":
+                    current_monitor = MotoGPMonitor(on_motogp_update, app.add_log)
+                    app.add_log("[Sistema] Iniciando monitor MotoGP...")
+                    # Update bulb immediately to last known MotoGP status if available
+                    if last_motogp_status:
+                        await kasa_mgr.set_color(last_motogp_status, app.add_log)
                 
                 monitor_task = asyncio.create_task(current_monitor.run())
             
