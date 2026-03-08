@@ -11,6 +11,13 @@ class KasaManager:
         self.connected = False
         self.current_series = "f1"  # "f1" or "nascar"
 
+    def update_config(self, ip, username, password):
+        self.ip = ip
+        self.username = username
+        self.password = password
+        self.connected = False
+        self.device = None
+
     def update_ip(self, new_ip):
         self.ip = new_ip
         self.connected = False

@@ -2,7 +2,19 @@ import tkinter as tk
 import customtkinter as ctk
 import asyncio
 import time
+import ctypes
+import os
+import sys
 from config import COLORS, NASCAR_COLORS, MOTOGP_COLORS
+
+def resource_path(relative_path):
+    """ Get absolute path to resource, works for dev and for PyInstaller """
+    try:
+        # PyInstaller creates a temp folder and stores path in _MEIPASS
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+    return os.path.join(base_path, relative_path)
 
 class F1FlagApp(ctk.CTk):
     def __init__(self, kasa_mgr, monitor_thread_loop):
@@ -14,7 +26,36 @@ class F1FlagApp(ctk.CTk):
         self.selected_series = "f1"  # "f1" or "nascar"
         self.monitor_connected = False
         
+        # This tells Windows to use the app's icon instead of Python's default icon
+        try:
+            myappid = u'f1flag.monitor.app.1' 
+            ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)
+            ctypes.windll.shcore.SetProcessDpiAwareness(1)
+        except Exception:
+            pass
+            
         self.title("Racing Flag Monitor")
+        icon_file = resource_path("icon.ico")
+        try:
+            from PIL import Image, ImageTk
+            import math
+            img = Image.open(icon_file)
+            if img.mode != 'RGBA':
+                img = img.convert('RGBA')
+            
+            # Windows automatically stretches rectangular icons to a square, 
+            # so we pad it with transparent pixels to be a perfect square.
+            max_dim = max(img.size)
+            square_img = Image.new("RGBA", (max_dim, max_dim), (255, 255, 255, 0))
+            offset = ((max_dim - img.size[0]) // 2, (max_dim - img.size[1]) // 2)
+            square_img.paste(img, offset)
+            
+            icon_img = ImageTk.PhotoImage(square_img)
+            self.wm_iconphoto(True, icon_img)
+            self.iconbitmap(icon_file)
+        except Exception as e:
+            print("Error parsing icon:", e)
+            self.iconbitmap(icon_file)
         self.geometry("800x600")
         ctk.set_appearance_mode("dark")
         
@@ -65,33 +106,12 @@ class F1FlagApp(ctk.CTk):
         self.bulb_status_led = ctk.CTkLabel(self.conn_info, text="● Kasa Smart Bulb", text_color="red")
         self.bulb_status_led.pack(anchor="w", padx=10, pady=5)
 
-        # IP Configuration Frame
-        self.ip_frame = ctk.CTkFrame(self.conn_info, fg_color="transparent")
-        self.ip_frame.pack(anchor="w", padx=10, pady=(10, 0), fill="x")
+        # Configuration Frame
+        self.config_frame = ctk.CTkFrame(self.conn_info, fg_color="transparent")
+        self.config_frame.pack(anchor="w", padx=10, pady=(10, 0), fill="x")
         
-        self.ip_entry = ctk.CTkEntry(self.ip_frame, placeholder_text="IP Bombilla", width=120)
-        self.ip_entry.pack(side="left", padx=(0, 5))
-        if hasattr(self.kasa_mgr, 'ip') and self.kasa_mgr.ip:
-            self.ip_entry.insert(0, self.kasa_mgr.ip)
-            
-        self.update_ip_btn = ctk.CTkButton(self.ip_frame, text="↻", width=30, command=self.update_kasa_ip)
-        self.update_ip_btn.pack(side="left")
-
-    def update_kasa_ip(self):
-        new_ip = self.ip_entry.get()
-        if new_ip:
-            self.add_log(f"Actualizando IP a {new_ip}...")
-            self.kasa_mgr.update_ip(new_ip)
-            asyncio.run_coroutine_threadsafe(self._reconnect_kasa(), self.monitor_thread_loop)
-
-    async def _reconnect_kasa(self):
-        try:
-            msg = await self.kasa_mgr.connect()
-            self.add_log(msg)
-            self.update_status_ui()
-        except Exception as e:
-            self.add_log(str(e))
-            self.update_status_ui()
+        self.settings_btn = ctk.CTkButton(self.config_frame, text="⚙️ Configuración", width=120, command=self.open_settings_window)
+        self.settings_btn.pack(side="left")
 
         self.log_textbox = ctk.CTkTextbox(self, height=200)
         self.log_textbox.grid(row=2, column=0, padx=20, pady=10, sticky="nsew")
@@ -107,6 +127,84 @@ class F1FlagApp(ctk.CTk):
         self.test_buttons_frame.pack(side="left", padx=5)
         
         self._update_test_buttons()
+
+    def open_settings_window(self):
+        if hasattr(self, "settings_window") and self.settings_window.winfo_exists():
+            self.settings_window.focus()
+            return
+            
+        import config
+        self.settings_window = ctk.CTkToplevel(self)
+        self.settings_window.title("Configuración")
+        self.settings_window.geometry("300x380")
+        self.settings_window.attributes("-topmost", True)
+        
+        ctk.CTkLabel(self.settings_window, text="KASA IP:").pack(pady=(10, 0))
+        ip_entry = ctk.CTkEntry(self.settings_window)
+        ip_entry.pack(pady=5)
+        ip_entry.insert(0, config.settings.get("KASA_IP", ""))
+        
+        ctk.CTkLabel(self.settings_window, text="KASA Username:").pack()
+        user_entry = ctk.CTkEntry(self.settings_window)
+        user_entry.pack(pady=5)
+        user_entry.insert(0, config.settings.get("KASA_USERNAME", ""))
+        
+        ctk.CTkLabel(self.settings_window, text="KASA Password:").pack()
+        
+        pass_frame = ctk.CTkFrame(self.settings_window, fg_color="transparent")
+        pass_frame.pack(pady=5)
+        
+        pass_entry = ctk.CTkEntry(pass_frame, show="*", width=160)
+        pass_entry.pack(side="left")
+        pass_entry.insert(0, config.settings.get("KASA_PASSWORD", ""))
+        
+        def toggle_password():
+            if pass_entry.cget("show") == "*":
+                pass_entry.configure(show="")
+                show_btn.configure(text="Ocultar")
+            else:
+                pass_entry.configure(show="*")
+                show_btn.configure(text="Mostrar")
+                
+        show_btn = ctk.CTkButton(pass_frame, text="Mostrar", width=60, command=toggle_password)
+        show_btn.pack(side="left", padx=(5, 0))
+        
+        ctk.CTkLabel(self.settings_window, text="Delay (segundos):").pack()
+        delay_entry = ctk.CTkEntry(self.settings_window)
+        delay_entry.pack(pady=5)
+        delay_entry.insert(0, str(config.settings.get("DELAY", 0)))
+        
+        def save():
+            new_ip = ip_entry.get()
+            new_user = user_entry.get()
+            new_pass = pass_entry.get()
+            try:
+                new_delay = int(delay_entry.get())
+            except ValueError:
+                new_delay = 0
+
+            config.settings["KASA_IP"] = new_ip
+            config.settings["KASA_USERNAME"] = new_user
+            config.settings["KASA_PASSWORD"] = new_pass
+            config.settings["DELAY"] = new_delay
+            config.save_settings(config.settings)
+            
+            # Update running manager
+            self.kasa_mgr.update_config(new_ip, new_user, new_pass)
+            self.add_log(f"Configuración guardada (IP: {new_ip})")
+            self.settings_window.destroy()
+            asyncio.run_coroutine_threadsafe(self._reconnect_kasa(), self.monitor_thread_loop)
+            
+        ctk.CTkButton(self.settings_window, text="Guardar", command=save).pack(pady=15)
+
+    async def _reconnect_kasa(self):
+        try:
+            msg = await self.kasa_mgr.connect()
+            self.add_log(msg)
+            self.update_status_ui()
+        except Exception as e:
+            self.add_log(str(e))
+            self.update_status_ui()
 
     def manual_test(self, code):
         self.current_status_code = code

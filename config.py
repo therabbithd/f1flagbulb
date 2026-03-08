@@ -1,17 +1,31 @@
 import os
+import json
 
-# Try to load environment variables from .env file (optional)
-try:
-    from dotenv import load_dotenv
-    load_dotenv()
-except ImportError:
-    # dotenv not available (e.g., on Android), use environment variables directly
-    pass
+SETTINGS_FILE = "settings.json"
 
-# --- CONFIGURATION FROM .ENV ---
-KASA_USERNAME = os.getenv("KASA_USERNAME")
-KASA_PASSWORD = os.getenv("KASA_PASSWORD")
-KASA_IP = os.getenv("KASA_IP")
+def load_settings():
+    if os.path.exists(SETTINGS_FILE):
+        try:
+            with open(SETTINGS_FILE, "r") as f:
+                return json.load(f)
+        except Exception:
+            pass
+    return {}
+
+def save_settings(settings):
+    try:
+        with open(SETTINGS_FILE, "w") as f:
+            json.dump(settings, f, indent=4)
+    except Exception:
+        pass
+
+settings = load_settings()
+
+# --- CONFIGURATION FROM SETTINGS ---
+KASA_USERNAME = settings.get("KASA_USERNAME", "")
+KASA_PASSWORD = settings.get("KASA_PASSWORD", "")
+KASA_IP = settings.get("KASA_IP", "")
+DELAY = settings.get("DELAY", 0)
 
 # --- SIGNALR CONSTANTS ---
 SIGNALR_HUB = "Streaming"

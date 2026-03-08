@@ -29,6 +29,26 @@ async def main_logic(app):
     last_nascar_status = None
     last_motogp_status = None
 
+    current_delay_task = None
+    
+    async def delayed_set_color(status_str, logger=None):
+        import config
+        delay = config.settings.get("DELAY", 0)
+        if delay > 0:
+            if logger: logger(f"[Sistema] Esperando {delay}s antes de aplicar luz...")
+            try:
+                await asyncio.sleep(delay)
+            except asyncio.CancelledError:
+                if logger: logger(f"[Sistema] Cambio de luz cancelado.")
+                raise
+        await kasa_mgr.set_color(status_str, logger)
+
+    def schedule_color_change(status_str):
+        nonlocal current_delay_task
+        if current_delay_task and not current_delay_task.done():
+            current_delay_task.cancel()
+        current_delay_task = asyncio.create_task(delayed_set_color(status_str, app.add_log))
+
     async def on_f1_update(update):
         nonlocal last_f1_status
         if 'TrackStatus' in update:
@@ -40,8 +60,8 @@ async def main_logic(app):
                     last_f1_status = status_str
                     app.current_status_code = status_str
                     app.after(0, lambda: app.update_status_ui(current_monitor.connected if current_monitor else False))
-                    # Change bulb color immediately
-                    await kasa_mgr.set_color(status_str, app.add_log)
+                    # Schedule bulb color change with possible delay
+                    schedule_color_change(status_str)
 
     async def on_nascar_update(update):
         nonlocal last_nascar_status
@@ -55,8 +75,8 @@ async def main_logic(app):
                     last_nascar_status = flag_state_str
                     app.current_status_code = flag_state_str
                     app.after(0, lambda: app.update_status_ui(current_monitor.connected if current_monitor else False))
-                    # Change bulb color immediately
-                    await kasa_mgr.set_color(flag_state_str, app.add_log)
+                    # Schedule bulb color change with possible delay
+                    schedule_color_change(flag_state_str)
 
     async def on_motogp_update(update):
         nonlocal last_motogp_status
@@ -69,8 +89,8 @@ async def main_logic(app):
                     last_motogp_status = status_str
                     app.current_status_code = status_str
                     app.after(0, lambda: app.update_status_ui(current_monitor.connected if current_monitor else False))
-                    # Change bulb color immediately
-                    await kasa_mgr.set_color(status_str, app.add_log)
+                    # Schedule bulb color change with possible delay
+                    schedule_color_change(status_str)
 
     async def run_monitor():
         nonlocal current_monitor, monitor_task, last_series
@@ -100,19 +120,19 @@ async def main_logic(app):
                     app.add_log("[Sistema] Iniciando monitor F1...")
                     # Update bulb immediately to last known F1 status if available
                     if last_f1_status:
-                        await kasa_mgr.set_color(last_f1_status, app.add_log)
+                        schedule_color_change(last_f1_status)
                 elif series == "nascar":
                     current_monitor = NascarMonitor(on_nascar_update, app.add_log, poll_interval=5)
                     app.add_log("[Sistema] Iniciando monitor NASCAR...")
                     # Update bulb immediately to last known NASCAR status if available
                     if last_nascar_status:
-                        await kasa_mgr.set_color(last_nascar_status, app.add_log)
+                        schedule_color_change(last_nascar_status)
                 elif series == "motogp":
                     current_monitor = MotoGPMonitor(on_motogp_update, app.add_log)
                     app.add_log("[Sistema] Iniciando monitor MotoGP...")
                     # Update bulb immediately to last known MotoGP status if available
                     if last_motogp_status:
-                        await kasa_mgr.set_color(last_motogp_status, app.add_log)
+                        schedule_color_change(last_motogp_status)
                 
                 monitor_task = asyncio.create_task(current_monitor.run())
             
